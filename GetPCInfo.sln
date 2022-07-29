@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{3DC706DB-20A4-4792-9C22-78BA010C7046}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetDeviceInfo", "GetDeviceInfo\GetDeviceInfo.csproj", "{AF0E5D60-9FDC-480B-806F-809E1D9F8D79}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PC Info", "PC Info\PC Info.vdproj", "{8E79C9DB-9C62-4030-8930-98F4C2EB052B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DC706DB-20A4-4792-9C22-78BA010C7046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC706DB-20A4-4792-9C22-78BA010C7046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC706DB-20A4-4792-9C22-78BA010C7046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC706DB-20A4-4792-9C22-78BA010C7046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF0E5D60-9FDC-480B-806F-809E1D9F8D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0E5D60-9FDC-480B-806F-809E1D9F8D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0E5D60-9FDC-480B-806F-809E1D9F8D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0E5D60-9FDC-480B-806F-809E1D9F8D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E79C9DB-9C62-4030-8930-98F4C2EB052B}.Debug|Any CPU.ActiveCfg = Debug
+		{8E79C9DB-9C62-4030-8930-98F4C2EB052B}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FA755FE-CF12-4E7A-8FB6-86EDBEF77270}
+	EndGlobalSection
+EndGlobal
