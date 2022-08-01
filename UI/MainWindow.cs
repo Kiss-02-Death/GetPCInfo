@@ -275,7 +275,6 @@ namespace UI
                     Label_NetState.Text += "未连接！";
                 else
                     Label_NetState.Text += "已连接！";
-
             }
         }
 
@@ -347,6 +346,36 @@ namespace UI
             Label_NetState.Text = "当前网络：";
 
             ProgressBar_Scanning.Visible = true;
+        }
+
+        /// <summary>
+        /// 获取某个Panel容器内所有Label的Text文本
+        /// </summary>
+        /// <param name="container"></param>
+        /// <returns></returns>
+        private string GetControlLabelText(Control container)
+        {
+            string labelText = "";
+            foreach (Control c in container.Controls)
+            {
+                if (c is Label)
+                {
+                    Label label = (Label)c;
+                    labelText += label.Text + "\n";
+                }
+            }
+            return labelText;
+        }
+
+        /// <summary>
+        /// 单击图片复制该Panel容器内的所有Label文本
+        /// </summary>
+        /// <param name="container"></param>
+        private void GetLabelTextByPicture(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox)sender;
+;           Clipboard.SetText(GetControlLabelText(pictureBox.Parent));
+            MessageBox.Show("复制成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
