@@ -280,6 +280,7 @@ namespace UI
 
         private void BackgroundWorker_GetInfo_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
+            Label_UserName.Visible = true;
             Label_ConfigDetail.Enabled = true;
 
             // 清空提示信息，并隐藏、重置进度条,结束扫描
@@ -288,8 +289,13 @@ namespace UI
             ProgressBar_Scanning.Value = 0;
         }
 
+        /// <summary>
+        /// 重置窗体界面
+        /// </summary>
         private void ResetWindow()
         {
+            Label_UserName.Visible = false;
+
             Label_DeviceModel.Text = "设备型号：";
             Label_ComputerManufacturer.Text = "制造商：";
             Label_BIOSVersion.Text = "BIOS版本：";
@@ -349,10 +355,28 @@ namespace UI
         }
 
         /// <summary>
-        /// 获取某个Panel容器内所有Label的Text文本
+        /// 获取主界面的所有Panel控件
         /// </summary>
         /// <param name="container"></param>
         /// <returns></returns>
+        private List<Panel> GetAllPanel(Control container)
+        {
+            List<Panel> PanelList = new List<Panel>();
+            foreach (Control c in container.Controls)
+            {
+                if (c is Panel)
+                {
+                    PanelList.Add((Panel)c);
+                }
+            }
+            return PanelList;
+        }
+
+        /// <summary>
+        /// 获取某个Panel容器内所有Label的Text文本
+        /// </summary>
+        /// <param name="container">容器名</param>
+        /// <returns>容器内所有Label的Text（换行）</returns>
         private string GetControlLabelText(Control container)
         {
             string labelText = "";
@@ -376,6 +400,40 @@ namespace UI
             PictureBox pictureBox = (PictureBox)sender;
 ;           Clipboard.SetText(GetControlLabelText(pictureBox.Parent));
             MessageBox.Show("复制成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// 导出配置文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Label_UserName_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog()
+            {
+                UseDescriptionForTitle = true,
+                Description = "请选择导出路径",
+                ShowNewFolderButton = true
+            };
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = folderBrowserDialog.SelectedPath + "/配置.txt";
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                Label label = (Label)sender;
+                List<Panel> PanelList = GetAllPanel(label.Parent);
+
+                StreamWriter sw = File.CreateText(path);
+                for (int i = 1; i < PanelList.Count - 1; i++)
+                {
+                    Panel panel = PanelList[i];
+                    sw.WriteLine(GetControlLabelText(panel));
+                }
+                sw.Close();
+                MessageBox.Show("导出成功！", "提示");
+            }
         }
     }
 }

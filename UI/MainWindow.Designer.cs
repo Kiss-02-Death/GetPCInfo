@@ -44,8 +44,8 @@
             this.PictureBox_Computer = new System.Windows.Forms.PictureBox();
             this.Label_DeviceModel = new System.Windows.Forms.Label();
             this.Label_ComputerManufacturer = new System.Windows.Forms.Label();
-            this.Label_DeviceSN = new System.Windows.Forms.Label();
             this.Label_BIOSVersion = new System.Windows.Forms.Label();
+            this.Label_DeviceSN = new System.Windows.Forms.Label();
             this.Label_UUID = new System.Windows.Forms.Label();
             this.Label_OS = new System.Windows.Forms.Label();
             this.Label_OSVersion = new System.Windows.Forms.Label();
@@ -283,17 +283,6 @@
             this.Label_ComputerManufacturer.TabIndex = 1;
             this.Label_ComputerManufacturer.Text = "制造商：";
             // 
-            // Label_DeviceSN
-            // 
-            this.Label_DeviceSN.AutoSize = true;
-            this.Label_DeviceSN.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Label_DeviceSN.ForeColor = System.Drawing.Color.White;
-            this.Label_DeviceSN.Location = new System.Drawing.Point(31, 150);
-            this.Label_DeviceSN.Name = "Label_DeviceSN";
-            this.Label_DeviceSN.Size = new System.Drawing.Size(76, 16);
-            this.Label_DeviceSN.TabIndex = 3;
-            this.Label_DeviceSN.Text = "设备SN：";
-            // 
             // Label_BIOSVersion
             // 
             this.Label_BIOSVersion.AutoSize = true;
@@ -304,6 +293,17 @@
             this.Label_BIOSVersion.Size = new System.Drawing.Size(94, 16);
             this.Label_BIOSVersion.TabIndex = 2;
             this.Label_BIOSVersion.Text = "BIOS版本：";
+            // 
+            // Label_DeviceSN
+            // 
+            this.Label_DeviceSN.AutoSize = true;
+            this.Label_DeviceSN.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Label_DeviceSN.ForeColor = System.Drawing.Color.White;
+            this.Label_DeviceSN.Location = new System.Drawing.Point(31, 150);
+            this.Label_DeviceSN.Name = "Label_DeviceSN";
+            this.Label_DeviceSN.Size = new System.Drawing.Size(76, 16);
+            this.Label_DeviceSN.TabIndex = 3;
+            this.Label_DeviceSN.Text = "设备SN：";
             // 
             // Label_UUID
             // 
@@ -836,6 +836,8 @@
             this.Label_UserName.Size = new System.Drawing.Size(72, 20);
             this.Label_UserName.TabIndex = 8;
             this.Label_UserName.Text = "你好！";
+            this.Label_UserName.Visible = false;
+            this.Label_UserName.Click += new System.EventHandler(this.Label_UserName_Click);
             // 
             // BackgroundWorker_GetInfo
             // 
